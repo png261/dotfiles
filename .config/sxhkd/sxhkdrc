@@ -1,0 +1,27 @@
+super + {minus,equal}
+    ~/.bin/volume {down,up}
+
+super + shift + {minus,equal}
+    ~/.bin/volume {mute,max}
+
+super + P     
+    ~/.bin/png_run
+
+super + z     
+    ~/.bin/ibus_change
+
+super + g 
+    ~/.bin/browser
+
+super + shift + {0,-,=} 
+	sudo systemctl {suspend,reboot,poweroff}
+    
+super + S
+	flameshot gui
+
+super + v
+	clipmenu
+
+button{6,7,8,9}
+	xte "keydown Super_L" "key {Tab,Space,j,k}" "keyup Super_L"
+

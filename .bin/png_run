@@ -1,0 +1,30 @@
+#!/bin/sh
+CHOICE=(
+    browser
+    read
+    power
+	monitor
+    blocksite
+)
+
+chosen=$(printf "%s\n" ${CHOICE[@]} | dmenu)
+case $chosen in
+    run)
+        j4-dmenu-desktop --term=st
+    ;;
+    read)
+        ~/.bin/png_read 
+    ;;
+    power)
+        ~/.bin/power 
+    ;;
+    blocksite)
+        ~/.bin/blocksite 
+    ;;
+    browser)
+        ~/.bin/browser 
+    ;;
+    monitor)
+        ~/.bin/monitor 
+    ;;
+esac

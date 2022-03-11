@@ -1,0 +1,29 @@
+#!/bin/sh
+sec=0
+update_time=1
+
+update_time () { 
+	time="$(date "+%I:%M %P")" 
+}
+
+update_memory () { 
+	memory="$(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
+}
+
+display(){
+	xsetroot -name " [ $time ] " 
+}
+
+while true
+do
+	sleep $update_time &&
+	wait && { 
+		[ $((sec % 5 )) -eq 0 ] && update_time
+		#[ $((sec % 15)) -eq 0 ] && update_memory
+
+		# how often the display updates ( 5 seconds )
+		[ $((sec % 5 )) -eq 0 ] && display
+		((sec = sec + updatetime))
+	}
+done
+

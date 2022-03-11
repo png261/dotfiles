@@ -1,0 +1,21 @@
+#!/bin/sh
+CHOICE=(
+    extend
+    pc
+    second
+)
+chosen=$(printf "%s\n" ${CHOICE[@]} | dmenu -p "Monitor")
+[[ -z "$chosen" ]] && exit; 
+
+case $chosen in
+    extend)
+		xrandr --output HDMI-1 --auto --pos 1366x0 --primary --output eDP-1 --auto
+    ;;
+    pc)
+		xrandr --output HDMI-1 --off --output eDP-1 --auto 
+    ;;
+    second)
+		xrandr --output HDMI-1 --auto --output eDP-1 --off 
+    ;;
+esac
+feh --bg-scale ~/.wallpaper/

@@ -1,0 +1,4 @@
+#!/bin/bash
+search=$(echo '' | dmenu -p Browser: -i)
+[[ -z "$search" ]] && exit; 
+firefox --new-tab "https://duckduckgo.com/?q=${search}" 2> /dev/null

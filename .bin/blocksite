@@ -1,0 +1,4 @@
+#!/bin/bash
+blocksite=$(xclip -o | dmenu -p "Hosts:") 
+[[ -z "$blocksite" ]] && exit; 
+echo "0.0.0.0		$blocksite" | sudo tee -a /etc/hosts && dunstify "Hosts" "blocked $1"

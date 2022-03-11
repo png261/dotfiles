@@ -1,0 +1,20 @@
+#!/bin/bash
+langs=(
+	english
+	vietnamese
+	japanese
+)
+lang=$(printf "%s\n" ${langs[@]} | dmenu -p Input: -i)
+
+
+case $lang in
+    english)
+		ibus engine xkb:us::eng
+    ;;
+    vietnamese)
+		ibus engine Bamboo
+    ;;
+    japanese)
+		ibus engine anthy
+    ;;
+esac

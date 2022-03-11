@@ -1,0 +1,8 @@
+#!/bin/bash
+echo $EBOOKS_FOLDER
+book=$(find $EBOOKS_FOLDER -type f  | dmenu -p Read: -i -l 10)
+[[ -z "$book" ]] && exit; 
+xdg-open "$book"
+
+
+

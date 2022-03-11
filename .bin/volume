@@ -1,0 +1,34 @@
+#!/bin/bash
+# changeVolume
+
+# Arbitrary but unique message tag
+msgTag="myvolume"
+changeNumber=5
+case $1 in 
+    up)
+        pamixer -u -i $changeNumber        
+    ;;
+    down)
+        pamixer -u -d $changeNumber        
+    ;;
+    max)
+        pamixer -u --set-volume 100
+    ;;
+    mute)
+        pamixer -t
+    ;;
+esac
+
+send_notification(){
+    volume="$(pamixer --get-volume)"
+    isMute="$(pamixer --get-mute)"
+
+    if [[ $volume == 0 || "$isMute" == true ]]; then
+        dunstify -a "changeVolume" -u low -i audio-volume-muted -h string:x-dunst-stack-tag:$msgTag "Volume muted" 
+    else
+        dunstify -a "changeVolume" -u low -i audio-volume-high -h string:x-dunst-stack-tag:$msgTag \
+        -h int:value:"$volume" "Volume: ${volume}%"
+    fi
+}
+
+send_notification

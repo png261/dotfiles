@@ -1,0 +1,15 @@
+#include "/home/png/.cache/wal/colors-mydwm.Xresources"
+
+dwm.borderpx: 1
+dwm.snap: 32           
+dwm.showbar: 1        
+dwm.topbar: 1         
+dwm.nmaster: 1
+dwm.resizehints: 1    
+dwm.mfact: 0.55      	 
+dwm.gappx: 10
+dwm.showsystray: 1     
+dwm.systraypinning: 0
+dwm.systrayonleft: 0
+dwm.systrayspacing: 2
+dwm.systraypinningfailfirst: 1

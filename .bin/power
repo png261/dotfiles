@@ -1,0 +1,20 @@
+#!/bin/bash
+CHOICE=(
+    suspend
+    reboot
+    poweroff
+)
+chosen=$(printf "%s\n" ${CHOICE[@]} | dmenu -p Power: -i)
+
+case $chosen in
+    suspend)
+        systemctl suspend
+    ;;
+    reboot)
+        sudo reboot
+    ;;
+    poweroff)
+        systemctl poweroff
+    ;;
+esac
+
