@@ -1,6 +1,5 @@
 #!/bin/sh
 systemctl --user import-environment DISPLAY &
-sudo evremap remap .evremap &
 
 picom &
 sxhkd &
