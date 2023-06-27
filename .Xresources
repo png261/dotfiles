@@ -1,6 +1,6 @@
-#include "/home/png/.cache/wal/colors-mydwm.Xresources"
+#include "/home/png261/.cache/wal/colors-mydwm.Xresources"
 
-dwm.borderpx: 1
+dwm.borderpx: 0 
 dwm.snap: 32           
 dwm.showbar: 1        
 dwm.topbar: 1         
@@ -8,8 +8,18 @@ dwm.nmaster: 1
 dwm.resizehints: 1    
 dwm.mfact: 0.55      	 
 dwm.gappx: 10
-dwm.showsystray: 1     
+dwm.showsystray: 0     
 dwm.systraypinning: 0
 dwm.systrayonleft: 0
 dwm.systrayspacing: 2
 dwm.systraypinningfailfirst: 1
+
+dmenu.topbar: 1
+dmenu.center: 1
+dmenu.min_width: 600
+dmenu.lineheight: 30
+dmenu.lines: 10
+dmenu.prompt:
+dmenu.highlight: #ffc978
+dmenu.border_width: 5
+
