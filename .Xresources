@@ -15,6 +15,7 @@ dwm.systrayspacing: 2
 dwm.systraypinningfailfirst: 1
 
 st.shell: zsh
+st.termname: st-256color
 st.alpha: 0.8
 st.font: JetBrainsMono Nerd Font:pixelsize=16:antialias=true:autohint=true
 st.borderpx: 2
