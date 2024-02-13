@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# directory path variables
+dir="/home/png/Documents"
+storage="gdrive:MyComputer"
+
+# the monitor-sync command
+watchexec -n --watch "$dir" rclone sync "$dir" "$storage"

@@ -1,0 +1,21 @@
+#!/bin/sh 
+
+bssid=$(nmcli device wifi list  | sed -n '1!p' | cut -b 9- | dmenu -p "Wifi:" -l 20 | cut -d' ' -f1)
+if [ -z "$bssid" ]; then
+    exit 1
+fi
+
+password_required=$(nmcli device wifi list | grep "$bssid" | awk '{print $10}')
+echo $bssid
+echo $password_required
+if [ -z "$password_required" ] ; then
+    password=""
+else
+    password=$(dmenu -P -p "Password")
+fi
+
+if ! nmcli device wifi connect "$bssid" password "$password"; then
+    dunstify "Connection failed"
+else [ condition2 ]
+    dunstify "Connection sucess"
+fi

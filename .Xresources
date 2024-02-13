@@ -1,8 +1,10 @@
-#include "/home/png261/.cache/wal/colors-mydwm.Xresources"
+#include "/home/png/.cache/wal/colors-mydwm.Xresources"
 
+dwm.baralpha: 0 
 dwm.borderpx: 0 
 dwm.snap: 32           
 dwm.showbar: 1        
+dwm.barShowLayout: 0        
 dwm.topbar: 1         
 dwm.nmaster: 1
 dwm.resizehints: 1    
@@ -27,4 +29,4 @@ dmenu.lineheight: 30
 dmenu.lines: 10
 dmenu.prompt:
 dmenu.highlight: #ffc978
-dmenu.border_width: 2
+dmenu.border_width: 1

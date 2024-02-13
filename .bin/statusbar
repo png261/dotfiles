@@ -1,17 +1,32 @@
 #!/bin/sh
 sec=0
 update_time=1
+battery=0
+battery_status=0
 
 update_time () { 
-	time="$(date "+%I:%M %P")" 
+	time="$(date "+%I:%M")" 
 }
 
 update_memory () { 
 	memory="$(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
 }
 
+update_battery_status() {
+    status=$(cat /sys/class/power_supply/BAT0/status)
+    if [ "$status" = "Charging" ]; then
+        battery_status="⚡ "
+    else [ "$status" = "Discharging" ];
+        battery_status=""
+    fi
+}
+
+update_battery () { 
+	battery="$(cat /sys/class/power_supply/BAT0/capacity)" 
+}
+
 display(){
-	xsetroot -name " [ $time ] " 
+	xsetroot -name "[$battery_status$battery%] [$time]" 
 }
 
 while true
@@ -19,6 +34,8 @@ do
 	sleep $update_time &&
 	wait && { 
 		[ $((sec % 5 )) -eq 0 ] && update_time
+		[ $((sec % 15 )) -eq 0 ] && update_battery
+		[ $((sec % 15 )) -eq 0 ] && update_battery_status
 		#[ $((sec % 15)) -eq 0 ] && update_memory
 
 		# how often the display updates ( 5 seconds )
